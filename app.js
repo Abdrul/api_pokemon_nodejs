@@ -1,5 +1,4 @@
 const express = require("express");
-
 const bodyParser = require("body-parser");
 const sequelize = require("./src/db/sequelize");
 
@@ -11,9 +10,9 @@ app.use(bodyParser.json());
 
 sequelize.initDb();
 
-// app.get("/", (req, res) => {
-//   res.json("Hello Heroku");
-// });
+app.get("/", (req, res) => {
+  res.json("Hello Heroku");
+});
 
 require("./src/routes/findAllPokemon")(app);
 require("./src/routes/findPokemonByPk")(app);
