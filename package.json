@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "exercice",
   "main": "app.js",
+  "engines": {
+    "node": "16.17.0"
+  },
   "scripts": {
     "start": "set NODE_ENV=development&&node app.js",
     "dev": "set NODE_ENV=development&&nodemon app.js"
