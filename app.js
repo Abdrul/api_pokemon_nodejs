@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const sequelize = require("./src/db/sequelize");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 // morgan middleware
 app.use(bodyParser.json());
@@ -27,4 +27,4 @@ app.use(({ res }) => {
   res.status(404).json({ message });
 });
 
-app.listen(port, () => console.log("Node démarré"));
+app.listen(PORT, () => console.log("Node démarré sur le port" + PORT));
