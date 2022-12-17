@@ -34,7 +34,7 @@ const User = UserModel(sequelize, DataTypes);
 // };
 
 const initDb = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync();
   pokemons.map((pokemon) => {
     Pokemon.create({
       name: pokemon.name,
