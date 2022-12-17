@@ -35,6 +35,7 @@ const User = UserModel(sequelize, DataTypes);
 
 const initDb = async () => {
   await sequelize.sync();
+
   pokemons.map((pokemon) => {
     Pokemon.create({
       name: pokemon.name,
@@ -43,7 +44,6 @@ const initDb = async () => {
       picture: pokemon.picture,
       types: pokemon.types,
     });
-    console.log(pokemon);
   });
 
   const hashing = await bcrypt.hash("pikachu", 10);
