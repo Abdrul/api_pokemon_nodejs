@@ -1,12 +1,10 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const sequelize = require("./src/db/sequelize");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// morgan middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 sequelize.initDb();
 

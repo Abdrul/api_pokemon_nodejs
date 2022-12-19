@@ -1,9 +1,9 @@
 const { Pokemon } = require("../db/sequelize");
 const { Op } = require("sequelize");
-const auth = require("../auth/auth");
+// const auth = require("../auth/auth");
 
 module.exports = (app) => {
-  app.get("/api/pokemons", auth, async (req, res) => {
+  app.get("/api/pokemons", async (req, res) => {
     try {
       if (req.query.name) {
         const name = req.query.name;

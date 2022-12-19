@@ -22,33 +22,21 @@ const User = UserModel(sequelize, DataTypes);
 //         cp: pokemon.cp,
 //         picture: pokemon.picture,
 //         types: pokemon.types,
-//       }).then((bulbizarre) => console.log(bulbizarre.toJSON()));
+//       });
 //     });
 
 //     bcrypt.hash("pikachu", 10).then((hash) => {
-//       User.create({ username: "pikachu", password: hash }).then((user) =>
-//         console.log(user.toJSON())
-//       );
+//       User.create({ username: "pikachu", password: hash });
 //     });
 //   });
 // };
 
 const initDb = async () => {
-  await sequelize.sync();
-
-  pokemons.map((pokemon) => {
-    Pokemon.create({
-      name: pokemon.name,
-      hp: pokemon.hp,
-      cp: pokemon.cp,
-      picture: pokemon.picture,
-      types: pokemon.types,
-    });
-  });
-
-  const hashing = await bcrypt.hash("pikachu", 10);
-  const user = await User.create({ username: "pikachu", password: hashing });
-  console.log(user.toJSON());
+  try {
+    await sequelize.sync({ force: false });
+  } catch (err) {
+    console.log(`SALUT JE SUIS L'ERREUR ${err}`);
+  }
 };
 
 module.exports = {
